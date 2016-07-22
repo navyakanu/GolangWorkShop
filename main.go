@@ -2,7 +2,14 @@ package main
 
 import (
 	"fmt"
+	"errors"
 )
+
+
+
+
+
+
 
 func main() {
 
@@ -11,13 +18,20 @@ func main() {
 	fmt.Println("Main.go executing\n")
 	x:=20
 	fmt.Println(x)
-	y:=variableprint()
+	y,err:=ErrorExample()
+	fmt.Println("Printing error from function")
+	fmt.Println(err)
 	fmt.Println(y)
+
 }
 
 
 
-func variableprint() int {
+func ErrorExample() (int,error) {
 
-	return 2
+if 2 != 1 {
+	return 2,errors.New("Not equal- Error ")
+} else {
+	return 0,nil
+}
 }
